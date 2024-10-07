@@ -8,7 +8,7 @@ export default function Header() {
     <div className={s.header}>
       <div className={s.day}>Today</div>
       <div className={s.searchContainer}>
-        <Input className={s.search} type="search" />
+        <Input className={s.search} type="search" placeholder="Search"/>
         <CiSearch className={s.icon} />
       </div>
         <Tabs items={['All', 'Completed', 'Incomplete']}/>

@@ -10,7 +10,7 @@ export default function Todo() {
       <div className={s.todo}>
         <Header />
         <TodosList />
-        <Input />
+        <Input placeholder="Type Something"/>
         <Button className={s.button}>Add Task</Button>
       </div>
     </div>
