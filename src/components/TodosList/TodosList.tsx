@@ -4,7 +4,7 @@ import s from "./TodosList.module.scss";
 import { TodoContext } from "../../context/TodoContext";
 
 export default function TodosList() {
-  const { todos, removeTodo, editTodo } = useContext(TodoContext)!;
+  const { filteredTodo, removeTodo, editTodo } = useContext(TodoContext)!;
 
   const removeTodoHandler = (id: number) => {
     removeTodo(id);
@@ -16,7 +16,7 @@ export default function TodosList() {
 
   return (
     <div className={s.todoContainer}>
-      {todos.map((item) => (
+      {filteredTodo.map((item) => (
         <Todo
           key={item?.id}
           isCompleted={!!item.completed}

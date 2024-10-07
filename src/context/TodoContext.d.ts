@@ -8,9 +8,12 @@ export type TodosState = {
 
 export interface TodoContextProps {
   todos: TodosState[];
+  filteredTodo: TodosState[];
+  filterValues: filtersType;
   addTodo: (todo: string) => void;
   removeTodo: (index: number) => void;
   editTodo: (index: number, newTodo: Partial<Omit<TodosState, 'id'>>) => void;
+  filterTodo: (filters: Partial<filtersType>) => void;
 }
 
 export interface AddTodoAction {
