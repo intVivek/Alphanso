@@ -5,9 +5,20 @@
     color: white;
     border: none;
     cursor: pointer;
+    user-select: none;
 
     &:hover{
         background: rgb(36, 36, 36);
         transition: all 0.1s ease-in-out;
+    }
+}
+
+.disabled{
+    cursor: default;
+    background: rgb(136, 136, 136);
+    pointer-events: none;
+
+    &:hover{
+        background: rgb(136, 136, 136);
     }
 }

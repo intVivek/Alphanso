@@ -21,7 +21,7 @@ export default function Todo() {
         <Header />
         <TodosList />
         <Input placeholder="Type Something" value={value} onChange={(e)=>setValue(e.target.value)}/>
-        <Button className={s.button} onClick={handleAddTodo}>Add Task</Button>
+        <Button className={s.button} disabled={!value} onClick={handleAddTodo}>Add Task</Button>
       </div>
     </div>
   );
