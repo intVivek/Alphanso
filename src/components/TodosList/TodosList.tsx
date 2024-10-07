@@ -1,24 +1,16 @@
+import { useContext } from "react";
 import Todo from "./Todo";
 import s from "./TodosList.module.scss";
-
-const list = [
-  {
-    id: 1,
-    name: "Todo 1",
-    completed: true,
-  },
-  {
-    id: 2,
-    name: "Todo 2",
-    completed: false,
-  },
-];
+import { TodoContext } from "../../context/TodoContext";
 
 export default function TodosList() {
+
+  const { todos } = useContext(TodoContext)!;
+
   return (
     <div className={s.todoContainer}>
-      {list.map((item) => (
-        <Todo key={item.id} isCompleted={item.completed}>
+      {todos.map((item) => (
+        <Todo key={item?.id} isCompleted={!!item.completed}>
           {item.name}
         </Todo>
       ))}

@@ -11,8 +11,12 @@ interface TodoProviderProps {
 export const TodoProvider: React.FC<TodoProviderProps> = ({ children }) => {
     const [todos, dispatch] = useReducer(todoReducer, []);
 
+    const addTodo = (todo: string) => {
+        dispatch({ type: 'ADD_TODO', payload: todo });
+      };
+
     return (
-        <TodoContext.Provider value={{ todos }}>
+        <TodoContext.Provider value={{ todos, addTodo }}>
             {children}
         </TodoContext.Provider>
     );
