@@ -1,5 +1,5 @@
 import React, { createContext, useReducer, ReactNode } from "react";
-import { TodoContextProps } from "./TodoContext.d";
+import { TodoContextProps, TodosState } from "./TodoContext.d";
 import { todoReducer } from "./todoReducer";
 
 export const TodoContext = createContext<TodoContextProps | undefined>(
@@ -21,8 +21,12 @@ export const TodoProvider: React.FC<TodoProviderProps> = ({ children }) => {
     dispatch({ type: "REMOVE_TODO", payload: index });
   };
 
+  const editTodo = (id: number, editedTodo: Partial<Omit<TodosState, 'id'>>) => {
+    dispatch({ type: 'EDIT_TODO', payload: { id, ...editedTodo } });
+  };
+
   return (
-    <TodoContext.Provider value={{ todos, addTodo, removeTodo }}>
+    <TodoContext.Provider value={{ todos, addTodo, removeTodo, editTodo }}>
       {children}
     </TodoContext.Provider>
   );

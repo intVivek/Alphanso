@@ -10,6 +10,7 @@
     font-size: 14px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+    user-select: none;
 
     >.check{
         color: #98cc85;

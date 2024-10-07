@@ -10,6 +10,7 @@ export interface TodoContextProps {
   todos: TodosState[];
   addTodo: (todo: string) => void;
   removeTodo: (index: number) => void;
+  editTodo: (index: number, newTodo: Partial<Omit<TodosState, 'id'>>) => void;
 }
 
 export interface AddTodoAction {
@@ -22,4 +23,9 @@ export interface RemoveTodoAction {
   payload: number;
 }
 
-export type TodoAction = AddTodoAction | RemoveTodoAction;
+export interface EditTodoAction {
+  type: 'EDIT_TODO';
+  payload: Partial<TodosState>
+}
+
+export type TodoAction = AddTodoAction | RemoveTodoAction | EditTodoAction;
