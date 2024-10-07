@@ -34,6 +34,10 @@
         top: 12px;
         right: 14px;
         color: var(--gray-ink);
+
+        &:hover{
+            transform: scale(1.2);
+        }
     }
 }
 

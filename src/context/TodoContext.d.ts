@@ -9,6 +9,7 @@ export type TodosState = {
 export interface TodoContextProps {
   todos: TodosState[];
   addTodo: (todo: string) => void;
+  removeTodo: (index: number) => void;
 }
 
 export interface AddTodoAction {
@@ -16,4 +17,9 @@ export interface AddTodoAction {
   payload: string;
 }
 
-export type TodoAction = AddTodoAction;
+export interface RemoveTodoAction {
+  type: 'REMOVE_TODO';
+  payload: number;
+}
+
+export type TodoAction = AddTodoAction | RemoveTodoAction;

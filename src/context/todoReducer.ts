@@ -7,10 +7,10 @@ export const todoReducer = (
 ): TodosState[] => {
   switch (action.type) {
     case "ADD_TODO":
-      return [
-        ...state,
-        { id: getUniqueId(), name: action.payload },
-      ];
+      return [...state, { id: getUniqueId(), name: action.payload }];
+
+    case "REMOVE_TODO":
+      return state.filter((item) => item.id !== action.payload);
     default:
       return state;
   }
