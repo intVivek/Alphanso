@@ -2,6 +2,7 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    gap: 12px;
 
     >.day{
         font-size: 36px;
@@ -13,9 +14,10 @@
         width: auto;
         flex: 1;
         position: relative; 
+        margin-right: 80px;
+        min-width: 180px;
 
         >.search{
-            margin-right: 80px;
             border-radius: 20px;
             padding-left: 40px;
         }

@@ -1,0 +1,26 @@
+.tabs {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  height: 40px;
+  transition: all 0.3s ease-in-out;
+
+  > .tab {
+    background-color: gray;
+    color: white;
+    width: max-content;
+    height: 20px;
+    border-radius: 4px;
+    font-size: 12px;
+    padding: 0px 10px;
+    display: grid;
+    place-items: center;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+  }
+
+  > .tab_selected {
+    background-color: #98cc85;
+    transition: all 0.3s ease-in-out;
+  }
+}

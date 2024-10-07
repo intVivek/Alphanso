@@ -1,4 +1,5 @@
 import Input from "../Input";
+import Tabs from "../Tabs";
 import s from "./Header.module.scss";
 import { CiSearch } from "react-icons/ci";
 
@@ -10,6 +11,7 @@ export default function Header() {
         <Input className={s.search} type="search" />
         <CiSearch className={s.icon} />
       </div>
+        <Tabs items={['All', 'Completed', 'Incomplete']}/>
     </div>
   );
 }
