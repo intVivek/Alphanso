@@ -1,0 +1,44 @@
+.todo{
+    position: relative;
+    width: 100%; height: 40px;
+    border: 1px solid var(--gray-border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    padding-left: 16px;
+    box-sizing: border-box;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    >.check{
+        color: #98cc85;
+        width: 25px; height: 25px;
+        margin-right: 8px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    >.uncheck{
+        color: gray;
+        width: 20px; height: 20px;
+        border-radius: 100%;
+        border: 1px solid var(--gray-border);
+        margin-right: 8px;
+        margin-left: 2px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    >.cross{
+        position: absolute;
+        width: 15px; height: 15px;
+        top: 12px;
+        right: 14px;
+        color: var(--gray-ink);
+    }
+}
+
+.todo_completed{
+    border: 1px solid #98cc85;
+    background: #e8f3e2;
+    transition: all 0.3s ease-in-out;
+}
