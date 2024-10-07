@@ -1,0 +1,30 @@
+.header{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    >.day{
+        font-size: 36px;
+        font-weight: bold;
+        margin-right: 80px;
+    }
+
+    >.searchContainer{
+        width: auto;
+        flex: 1;
+        position: relative; 
+
+        >.search{
+            margin-right: 80px;
+            border-radius: 20px;
+            padding-left: 40px;
+        }
+
+        >.icon{
+            position: absolute;
+            top: 12px;
+            left: 14px;
+        }
+    }
+
+}

@@ -1,5 +1,6 @@
 import './App.css'
 import Button from './components/Button'
+import Header from './components/Header/Header'
 import Input from './components/Input/Input'
 import { TodoProvider } from './context/TodoContext'
 
@@ -7,7 +8,7 @@ function App() {
 
   return (
     <TodoProvider>
-      <div />
+      <Header/>
       <Input/>
       <Button>Add Task</Button>
     </TodoProvider>

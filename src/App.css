@@ -2,3 +2,7 @@
     --gray-ink: rgb(58, 58, 58);
     --gray-border: rgb(190, 190, 190);
 }
+
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
