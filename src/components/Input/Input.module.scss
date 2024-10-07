@@ -5,6 +5,7 @@
     color: var(--gray-ink);
     padding: 0px 18px;
     box-sizing: border-box;
+    user-select: none;
 
     &:focus-visible{
         outline: none !important;

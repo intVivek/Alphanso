@@ -4,6 +4,7 @@ import Tabs from "../Tabs";
 import s from "./Header.module.scss";
 import { CiSearch } from "react-icons/ci";
 import { TodoContext } from "../../context/TodoContext";
+import useDebounceCallback from "../../hooks/useDebounceCallback";
 
 export enum TabsEnum {
   ALL,
@@ -25,8 +26,17 @@ const TabsValues = {
 
 export default function Header() {
   const { filterValues, filterTodo } = useContext(TodoContext)!;
+
+  const debouncedCallback = useDebounceCallback(
+    (filters) => {
+        filterTodo(filters);
+    },
+    500
+  );
+
+
   const handleSearch: ChangeEventHandler<HTMLInputElement> = (e) => {
-    filterTodo({ search: e.target.value });
+    debouncedCallback({ search: e.target.value });
   };
 
   const handleTabChange = (currentTab: TabsEnum) => {
@@ -42,7 +52,6 @@ export default function Header() {
           className={s.search}
           type="search"
           placeholder="Search"
-          value={filterValues.search}
         />
         <CiSearch className={s.icon} />
       </div>
