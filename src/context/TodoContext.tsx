@@ -1,4 +1,4 @@
-import React, { createContext, useReducer, ReactNode, useState, useMemo } from "react";
+import React, { createContext, useReducer, ReactNode, useState, useMemo, useCallback, useEffect } from "react";
 import { TodoContextProps, TodosState } from "./TodoContext.d";
 import { todoReducer } from "./todoReducer";
 import { TabsEnum } from "../components/Header/Header";
@@ -17,7 +17,13 @@ type filtersType = {
 }
 
 export const TodoProvider: React.FC<TodoProviderProps> = ({ children }) => {
-  const [todos, dispatch] = useReducer(todoReducer, []);
+
+  const initializer = localStorage.getItem('pesrist')
+  ? JSON.parse(localStorage.getItem('pesrist') || '')
+  : [];
+
+
+  const [todos, dispatch] = useReducer(todoReducer, initializer);
   const [filterValues, setFilterValues] = useState<filtersType>({
     search: '',
     type: TabsEnum.ALL
@@ -50,6 +56,19 @@ export const TodoProvider: React.FC<TodoProviderProps> = ({ children }) => {
       return matchesSearch && matchesType;
     });
   }, [filterValues, todos]);
+
+  const persistStore = (state:  TodosState[]) => {
+    localStorage.setItem('pesrist', JSON.stringify(state));
+  };
+
+  const handleBeforeUnload = useCallback(() => {
+    persistStore(todos);
+  }, [todos]);
+
+  useEffect(() => {
+    window.onbeforeunload = handleBeforeUnload;
+    return window.removeEventListener('onbeforeunload', handleBeforeUnload);
+  }, [handleBeforeUnload, todos]);
 
   return (
     <TodoContext.Provider value={{ todos, filteredTodo, filterValues, addTodo, removeTodo, editTodo, filterTodo }}>
