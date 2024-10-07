@@ -29,6 +29,10 @@ export default function Header() {
     filterTodo({ search: e.target.value });
   };
 
+  const handleTabChange = (currentTab: TabsEnum) => {
+    filterTodo({ type: currentTab});
+  };
+
   return (
     <div className={s.header}>
       <div className={s.day}>Today</div>
@@ -42,7 +46,7 @@ export default function Header() {
         />
         <CiSearch className={s.icon} />
       </div>
-      <Tabs items={Object.values(TabsValues).map((i) => i.value)} />
+      <Tabs items={Object.values(TabsValues).map((i) => i.value)} active={filterValues.type} onChange={handleTabChange}/>
     </div>
   );
 }

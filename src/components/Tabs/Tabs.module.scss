@@ -3,7 +3,7 @@
   gap: 12px;
   align-items: center;
   height: 40px;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.1wbs ease-in-out;
 
   > .tab {
     background-color: gray;
@@ -15,12 +15,12 @@
     padding: 0px 10px;
     display: grid;
     place-items: center;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.1s ease-in-out;
     cursor: pointer;
   }
 
   > .tab_selected {
-    background-color: #98cc85;
-    transition: all 0.3s ease-in-out;
+    background-color: #87d66b;
+    transition: all 0.1s ease-in-out;
   }
 }
